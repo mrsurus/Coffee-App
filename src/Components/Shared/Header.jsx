@@ -17,7 +17,7 @@ const Navbar = () => {
                         <div className="md:flex md:items-center md:gap-12">
                             <a className="ml-8 block text-white" href="/">
                                 <span className="sr-only">Home</span>
-                                <p className="text-2xl font-bold text-lime-400">ScienceP. </p>
+                                <p className="text-2xl font-bold text-orange-800">Caffeine Oasis</p>
 
                             </a>
                         </div>
@@ -27,14 +27,8 @@ const Navbar = () => {
                                 <ul className="flex items-center gap-6 text-sm">
 
                                     <li><Link to='/' className="text-base-300 font-semibold font-3xl transition hover:text-500/75" >Home</Link></li>
-                                    {user?.uid &&
-                                        <>
-                                            <li><Link to='/quesans' className="text-base-300 font-semibold font-3xl transition hover:text-gray-500/75" >Q/A</Link></li>
-                                            <li><Link to='/mycomment' className="text-base-300 font-semibold font-3xl transition hover:text-500/75" >My Comments</Link></li>
-                                        </>
-                                    }
-                                    <li><Link to='/blog' className="text-base-300 font-semibold font-3xl transition hover:text-gray-500/75" >Blog</Link></li>
-                                    <li><Link to='/about' className="text-base-300 font-semibold font-3xl transition hover:text-gray-500/75" >About Us</Link></li>
+                                    <li><Link to='/allmenu' className="text-base-300 font-semibold font-3xl transition hover:text-gray-500/75" >Menu</Link></li>
+                                    <li><Link to='/' className="text-base-300 font-semibold font-3xl transition hover:text-gray-500/75" >About Us</Link></li>
 
                                 </ul>
                             </nav>
@@ -50,10 +44,10 @@ const Navbar = () => {
 
                                     </>
                                         : <div className="sm:flex sm:gap-4">
-                                            <Link to='/login' className="rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-white shadow">Login</Link>
+                                            <Link to='/login' className="rounded-md bg-orange-800 px-5 py-2.5 text-sm font-medium text-white shadow">Login</Link>
 
                                             <div className="hidden sm:flex">
-                                                <Link to='/register' className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-primary">Register</Link>
+                                                <Link to='/register' className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-orange-800">Register</Link>
                                             </div>
                                         </div>
                                 }
@@ -68,13 +62,6 @@ const Navbar = () => {
                                 <div tabIndex={0} className="menu menu-compact dropdown-content  p-2   absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none "   >
                                     <div className="py-1" role="none">
                                         <Link to='/' className="text-gray-700 block px-4 py-2 text-sm" >Home</Link>
-                                        {user?.uid ?
-                                            <>
-                                                <Link to='/quesans' className="text-gray-700 block px-4 py-2 text-md" >Q/A</Link>
-                                                <Link to='/mycomment' className="text-gray-700 block px-4 py-2 text-md" >My Comments</Link>
-
-                                            </> :
-                                            <Link to='/register' className="text-gray-700 block px-4 py-2 text-md">Register</Link>}
                                         <Link to='/blog' className="text-gray-700 block px-4 py-2 text-md" >Blog</Link>
                                         <Link to='/about' className="text-gray-700 block px-4 py-2 text-md" >About Us</Link>
                                     </div>

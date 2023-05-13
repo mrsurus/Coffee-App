@@ -1,7 +1,12 @@
+import Banner from "../Banner/Banner";
+import Menu from "../Menu/Menu";
 
 
 export default function Home() {
   return (
-    <div>This is home page</div>
+    <div>
+      <Banner></Banner>
+      <Menu></Menu>
+    </div>
   )
 }

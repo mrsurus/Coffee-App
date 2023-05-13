@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { AuthContext } from '../Contexts/AuthProvider'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 export default function Register() {
   const {createUser, updateNamePhoto,} = useContext(AuthContext)
@@ -24,12 +25,11 @@ export default function Register() {
 
       createUser(email, password)
           .then(res => {
-              const user = res.user
-              // Swal.fire(
-              //     'Good job!',
-              //     'Registation Succesfull!',
-              //     'success'
-              //   )
+              Swal.fire(
+                  'Good job!',
+                  'Registation Succesfull!',
+                  'success'
+                )
                 navigate(from,{replace: true})
               updateNamePhoto(name, photo)
               .then( res => console.log('display uppdates'))
