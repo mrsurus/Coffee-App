@@ -1,48 +1,54 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Contexts/AuthProvider";
 import Swal from 'sweetalert2'
 
 const Login = () => {
-    const {name, Login, googleLogIn}  = useContext(AuthContext)
+    const { name, Login, googleLogIn } = useContext(AuthContext)
+    const [error, setError] = useState('')
     const navigate = useNavigate()
     const location = useLocation()
     const from = location.state?.from?.pathname || '/'
 
-    console.log(name);
-    const handleLogin=(e)=>{
+
+    const handleLogin = (e) => {
+        setError('')
         e.preventDefault()
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
 
-        Login(email,password)
-        .then(res =>{
-            console.log(res.user);
-            Swal.fire(
-                'Good job!',
-                'Log In Successful!',
-                'success'
-              )
-            navigate(from, {replace: true})
-           
-              
-        })
-        .catch(err => console.log(err))
+        Login(email, password)
+            .then(res => {
+                console.log(res.user);
+                Swal.fire(
+                    'Good job!',
+                    'Log In Successful!',
+                    'success'
+                )
+                navigate(from, { replace: true })
+
+
+            })
+            .catch(err => {
+                console.log(err)
+                setError(err.message)
+            }
+            )
 
     }
 
-    const handleGoogleLogIn= ()=> {
+    const handleGoogleLogIn = () => {
         googleLogIn()
-        .then(res => {
-            console.log(res.user)
-            Swal.fire(
-                'Good job!',
-                'Log In Successful!',
-                'success'
-              )
-        })
-        .catch(err => console.log(err))
+            .then(res => {
+                console.log(res.user)
+                Swal.fire(
+                    'Good job!',
+                    'Log In Successful!',
+                    'success'
+                )
+            })
+            .catch(err => console.log(err))
     }
     return (
         <div>
@@ -66,17 +72,19 @@ const Login = () => {
                             </label>
 
                         </div>
+
+                        {error && <p className="text-red-500">Error: {error.slice(22, 36)}</p>}
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Login</button>
                         </div>
                         <div>
                             New to this site? <Link to='/register' className='text-blue-500'>Sign Up</Link>
                         </div>
-                        
+
                     </form>
                     <div className="form-control my-4 mx-8">
-                            <button onClick={handleGoogleLogIn} className="btn btn-success ">Google Log In</button>
-                        </div>
+                        <button onClick={handleGoogleLogIn} className="btn btn-success ">Google Log In</button>
+                    </div>
                 </div>
             </div>
         </div>

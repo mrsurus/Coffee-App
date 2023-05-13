@@ -62,8 +62,8 @@ const Navbar = () => {
                                 <div tabIndex={0} className="menu menu-compact dropdown-content  p-2   absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none "   >
                                     <div className="py-1" role="none">
                                         <Link to='/' className="text-gray-700 block px-4 py-2 text-sm" >Home</Link>
-                                        <Link to='/blog' className="text-gray-700 block px-4 py-2 text-md" >Blog</Link>
-                                        <Link to='/about' className="text-gray-700 block px-4 py-2 text-md" >About Us</Link>
+                                        <Link to='/allmenu' className="text-gray-700 block px-4 py-2 text-md" >Menu</Link>
+                                        <Link to='/' className="text-gray-700 block px-4 py-2 text-md" >About Us</Link>
                                     </div>
                                 </div>
 
